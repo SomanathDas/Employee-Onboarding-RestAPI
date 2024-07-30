@@ -9,5 +9,4 @@ public class EmployeeOnboardingRestApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeOnboardingRestApiApplication.class, args);
 	}
-
 }

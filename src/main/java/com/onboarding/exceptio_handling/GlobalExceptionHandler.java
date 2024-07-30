@@ -5,15 +5,11 @@ import com.onboarding.exceptio_handling.exceptions.InvalidRoleException;
 import com.onboarding.exceptio_handling.exceptions.ResourceNotFoundException;
 import com.onboarding.exceptio_handling.exceptions.UsernameNotFoundException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authentication.AccountStatusException;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static org.springframework.http.ProblemDetail.forStatusAndDetail;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

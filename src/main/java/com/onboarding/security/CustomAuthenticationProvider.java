@@ -3,7 +3,6 @@ package com.onboarding.security;
 import com.onboarding.entity.User;
 import com.onboarding.exceptio_handling.exceptions.InvalidPasswordException;
 import com.onboarding.exceptio_handling.exceptions.InvalidRoleException;
-import com.onboarding.exceptio_handling.exceptions.UsernameNotFoundException;
 import com.onboarding.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -11,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +35,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Username not found: " + username);
+            throw new UsernameNotFoundException("Username not found");
         }
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
