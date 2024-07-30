@@ -27,8 +27,8 @@ public class DocumentController {
         String contentDisposition = String.format("inline; filename=\"%s\"", document.getDocumentName());
 
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + document.getDocumentName() + "\"")
+                .contentType(MediaType.parseMediaType(document.getMimeType()))
                 .body(document.getDocumentData());
     }
 }

@@ -18,6 +18,7 @@ public class Document {
 
     private String documentName;
     private String documentType;
+    private String mimeType;
 
     @Lob
     @Column(columnDefinition = "LONGBLOB")

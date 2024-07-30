@@ -108,6 +108,7 @@ public class EmployeeService {
                         Document document = new Document();
                         document.setDocumentName(metadata.getDocumentName());
                         document.setDocumentType(metadata.getDocumentType());
+                        document.setMimeType(file.getContentType());
                         document.setDocumentData(file.getBytes());
                         document.setEmployee(employee);
                         return document;
